@@ -1,18 +1,30 @@
 #language: pt
 
-  Funcionalidade: Realizar Login
-    Testes da API de login
+  @login
+Funcionalidade: Realizar Login
+  Testes da API de login
 
+  @loginSucesso
   Cenario: Realizar Login com Sucesso
     Dado que tenha um payload valido da API de Login
     Quando envio uma requisicao do tipo POST de Login
     Entao valido que recebo o status 200 no response
     E armazeno o token que recebo do response de Login
 
-    Cenario: Realizar Login com usuario invalido
-      Dado que tenha um payload da API de Login com as seguintes informacoes
-        | email | invalido@email.com |
-        | senha | 123456             |
-      Quando envio uma requisicao do tipo POST de Login
-      Entao valido que recebo o status 400 no response
-      
+  @loginInvalido
+  Esquema do Cenario: Realizar Login com <cenario>
+    Dado que tenha um payload da API de Login com as seguintes informacoes
+      | email | <email> |
+      | senha | <senha> |
+    Quando envio uma requisicao do tipo POST de Login
+    Entao valido que recebo o status 400 no response
+
+    @loginUsuarioInvalido
+    Exemplos:
+      | cenario          | email               | senha    |
+      | usuario invalido | invalidor@email.com | 123456   |
+
+    @loginSenhaInvalida
+    Exemplos:
+      | cenario          | email               | senha    |
+      | senha invalida   | aluno@email.com     | invalido |
