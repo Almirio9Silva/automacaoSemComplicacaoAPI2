@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 public class FilmesMap {
+
+    public static int id;
     private static Map<String, String> header;
     private static Map<String, Object> filme;
     private static Map<String, Object> categoria1;
@@ -55,7 +57,7 @@ public class FilmesMap {
 
     public static void initHeader(){
         header = new HashMap<>();
-        header.put("Authorization", "Bearer"+ LoginMap.token);
+        header.put("Authorization", "Bearer "+ LoginMap.token);
     }
 
     public static void initPlataforma(){
@@ -71,8 +73,8 @@ public class FilmesMap {
 
         filme.put("nome", "Alerta Vermelho");
         filme.put("descricao", "Um alerta vermelho da Interpool e emitido e o agente do FBI John Hartley assume o caso. " +
-                "Durante sua busca, ele se ve diante de um assalto ousado e e forcado a se aliar ao maior ladrao da " +
-                "historia, Nolan Booth, para capturar a ladra de arte mais procurada do mundo atualmente, Sarah Black.");
+                "Durante sua busca, ele se ve diante de um assalto ousado e e forcado a se aliar ao maior ladrao de arte " +
+                "historia.");
         filme.put("duracao", 1.35);
         filme.put("categorias", listCategoria);
         filme.put("plataformas", listPlataforma);
